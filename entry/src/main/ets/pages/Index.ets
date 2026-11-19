@@ -1,23 +1,21 @@
+
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
+    Column() {
+      Text('Hello World')
         .fontSize($r('app.float.page_text_font_size'))
         .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.message = 'Welcome';
-        })
     }
     .height('100%')
     .width('100%')
+    .backgroundColor('#0000ff')
+    .justifyContent(FlexAlign.Center)
+    .expandSafeArea(
+      [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT],
+      [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]
+    )
   }
 }
