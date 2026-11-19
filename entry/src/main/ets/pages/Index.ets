@@ -1,21 +1,32 @@
 
+import { webview } from '@kit.ArkWeb';
+
 @Entry
 @Component
 struct Index {
 
+  controller: webview.WebviewController = new webview.WebviewController();
+
   build() {
     Column() {
-      Text('Hello World')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
+      Web({
+        src: $rawfile("Saltline.html"),
+        controller: this.controller
+      })
+        .expandSafeArea()
+        .domStorageAccess(true)
+        .databaseAccess(true)
+        .horizontalScrollBarAccess(false)
+        .verticalScrollBarAccess(false)
+        .zoomAccess(false)
+        .mediaPlayGestureAccess(false)
+        .onFullScreenEnter((event) => {
+          event.handler.exitFullScreen();
+        })
     }
     .height('100%')
     .width('100%')
-    .backgroundColor('#0000ff')
     .justifyContent(FlexAlign.Center)
-    .expandSafeArea(
-      [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT],
-      [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]
-    )
+    .expandSafeArea()
   }
 }
