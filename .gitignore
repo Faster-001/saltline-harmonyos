@@ -12,3 +12,5 @@
 /.appanalyzer
 /.codegenie
 /build-profile.json5
+*.lnk
+*.url
