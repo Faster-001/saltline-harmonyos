@@ -31,3 +31,4 @@
 
 - Further fixes and improvements by Felix, the original author
 - In touch mode, another fire button is added on the left side to suit more players' habits
+- Other tiny bugfixes
